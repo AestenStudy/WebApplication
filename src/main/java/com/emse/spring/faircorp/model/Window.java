@@ -1,5 +1,7 @@
 package com.emse.spring.faircorp.model;
 
+import org.springframework.lang.NonNull;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,35 +17,17 @@ public class Window {
     @Enumerated(EnumType.STRING)
     private WindowStatus windowStatus;
 
+    @Column(nullable = false)
+    @ManyToOne
+    private Room room;
+
     public Window() {
+        new Window("unnamed", WindowStatus.CLOSED, new Room());
     }
 
-    public Window(String name, WindowStatus status) {
+    public Window(@NonNull String name, @NonNull WindowStatus status, @NonNull Room room) {
         this.windowStatus = status;
         this.name = name;
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public WindowStatus getWindowStatus() {
-        return windowStatus;
-    }
-
-    public void setWindowStatus(WindowStatus windowStatus) {
-        this.windowStatus = windowStatus;
+        this.room = room;
     }
 }
