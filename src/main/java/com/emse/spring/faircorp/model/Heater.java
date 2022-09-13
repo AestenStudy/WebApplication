@@ -33,4 +33,12 @@ public class Heater {
         this.power = power;
         this.room = room;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public HeaterStatus getHeaterStatus() {
+        return heaterStatus;
+    }
 }

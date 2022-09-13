@@ -36,4 +36,7 @@ public class Room {
         this.floor = floor;
     }
 
+    public String getName() {
+        return name;
+    }
 }
