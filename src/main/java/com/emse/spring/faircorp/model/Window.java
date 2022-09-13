@@ -5,7 +5,7 @@ import org.springframework.lang.NonNull;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "R_WINDOW")
+@Table(name = "RWINDOW")
 public class Window {
     @Id
     @GeneratedValue
@@ -17,7 +17,6 @@ public class Window {
     @Enumerated(EnumType.STRING)
     private WindowStatus windowStatus;
 
-    @Column(nullable = false)
     @ManyToOne
     private Room room;
 

@@ -5,7 +5,7 @@ import org.springframework.lang.NonNull;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "R_HEATER")
+@Table(name = "HEATER")
 public class Heater {
     @Id
     @GeneratedValue
@@ -17,7 +17,6 @@ public class Heater {
     @Column
     private Long power;
 
-    @Column(nullable = false)
     @ManyToOne
     private Room room;
 
