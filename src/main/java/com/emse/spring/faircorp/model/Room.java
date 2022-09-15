@@ -19,10 +19,10 @@ public class Room {
     private int floor;
 
     @Column
-    private double currentTemp;
+    private Double currentTemp; //null value can't be assigned to primitive type double, so Double
 
     @Column
-    private double targetTemp;
+    private Double targetTemp;
 
     @OneToMany(mappedBy = "room")
     private List<Heater> heaters;
@@ -40,10 +40,6 @@ public class Room {
 
     public String getName() {
         return name;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public int getFloor() {
