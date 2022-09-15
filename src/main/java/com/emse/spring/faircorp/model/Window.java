@@ -37,4 +37,6 @@ public class Window {
     public WindowStatus getWindowStatus() {
         return windowStatus;
     }
+
+
 }

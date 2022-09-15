@@ -18,8 +18,10 @@ public class Room {
     @Column(nullable = false)
     private int floor;
 
+    @Column
     private double currentTemp;
 
+    @Column
     private double targetTemp;
 
     @OneToMany(mappedBy = "room")
@@ -38,5 +40,29 @@ public class Room {
 
     public String getName() {
         return name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public int getFloor() {
+        return floor;
+    }
+
+    public double getCurrentTemp() {
+        return currentTemp;
+    }
+
+    public double getTargetTemp() {
+        return targetTemp;
+    }
+
+    public List<Heater> getHeaters() {
+        return heaters;
+    }
+
+    public List<Window> getWindows() {
+        return windows;
     }
 }
