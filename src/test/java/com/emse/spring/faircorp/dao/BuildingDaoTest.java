@@ -20,7 +20,7 @@ public class BuildingDaoTest {
 
     @Test
     public void shouldFindABuilding() {
-        Building building = buildingDao.findById(-10L);
+        Building building = buildingDao.getReferenceById(-10L);
         Assertions.assertThat(building.getName()).isEqualTo("Building1");
     }
 
