@@ -42,5 +42,15 @@ public class Window {
         return windowStatus;
     }
 
+    public Room getRoom() {
+        return room;
+    }
 
+    public void setWindowStatus(WindowStatus windowStatus) {
+        this.windowStatus = windowStatus;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

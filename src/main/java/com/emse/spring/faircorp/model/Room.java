@@ -42,6 +42,11 @@ public class Room {
         this.building = building;
     }
 
+    public Room(@NonNull String name, @NonNull int floor) {
+        this.name = name;
+        this.floor = floor;
+    }
+
     public String getName() {
         return name;
     }
