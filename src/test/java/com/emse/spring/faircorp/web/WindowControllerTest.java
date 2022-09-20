@@ -55,7 +55,7 @@ class WindowControllerTest {
 
     @Test
     void shouldLoadAWindowAndReturnNullIfNotFound() throws Exception {
-        given(windowDao.findById(999L)).willReturn(Optional.empty());
+        given(windowDao.findById(999L)).willReturn((Window) Optional.empty().get());
 
         mockMvc.perform(get("/api/windows/999").accept(APPLICATION_JSON))
                 // check the HTTP response
@@ -66,7 +66,7 @@ class WindowControllerTest {
 
     @Test
     void shouldLoadAWindow() throws Exception {
-        given(Optional.of(windowDao.findById(999L))).willReturn(Optional.of(createWindow("window 1")));
+        given(windowDao.findById(999L)).willReturn(Optional.of(createWindow("window 1")).get());
 
         mockMvc.perform(get("/api/windows/999").accept(APPLICATION_JSON))
                 // check the HTTP response
@@ -80,7 +80,7 @@ class WindowControllerTest {
         Window expectedWindow = createWindow("window 1");
         Assertions.assertThat(expectedWindow.getWindowStatus()).isEqualTo(WindowStatus.OPEN);
 
-        given(windowDao.findById(999L)).willReturn(Optional.of(expectedWindow)); //add Optional in given?
+        given(windowDao.findById(999L)).willReturn(Optional.of(expectedWindow).get()); //add Optional in given?
 
         mockMvc.perform(put("/api/windows/999/switch").accept(APPLICATION_JSON))
                 // check the HTTP response
@@ -128,6 +128,7 @@ class WindowControllerTest {
 
     private Window createWindow(String name) {
         Room room = new Room("S1", 1);
+        room.setId(-1L);
         return new Window(name, WindowStatus.OPEN, room);
     }
 
