@@ -1,4 +1,4 @@
-package com.emse.spring.faircorp.web;
+package com.emse.spring.faircorp.dto;
 
 import com.emse.spring.faircorp.model.Window;
 import com.emse.spring.faircorp.model.WindowStatus;

@@ -1,11 +1,11 @@
-package com.emse.spring.faircorp.web;
+package com.emse.spring.faircorp.api;
 
 import com.emse.spring.faircorp.dao.RoomDao;
 import com.emse.spring.faircorp.dao.WindowDao;
 import com.emse.spring.faircorp.model.Room;
 import com.emse.spring.faircorp.model.Window;
 import com.emse.spring.faircorp.model.WindowStatus;
-import com.emse.spring.faircorp.web.WindowDto;
+import com.emse.spring.faircorp.dto.WindowDto;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;

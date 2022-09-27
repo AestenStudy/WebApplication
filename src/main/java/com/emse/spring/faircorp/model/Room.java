@@ -16,7 +16,7 @@ public class Room {
     private String name;
 
     @Column(nullable = false)
-    private int floor;
+    private Integer floor;
 
     @Column
     private Double currentTemp; //null value can't be assigned to primitive type double, so Double
@@ -51,15 +51,15 @@ public class Room {
         return name;
     }
 
-    public int getFloor() {
+    public Integer getFloor() {
         return floor;
     }
 
-    public double getCurrentTemp() {
+    public Double getCurrentTemp() {
         return currentTemp;
     }
 
-    public double getTargetTemp() {
+    public Double getTargetTemp() {
         return targetTemp;
     }
 
@@ -71,11 +71,19 @@ public class Room {
         return windows;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Building getBuilding() {
+        return building;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
     }
 }

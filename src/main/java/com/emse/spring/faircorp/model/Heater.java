@@ -34,8 +34,18 @@ public class Heater {
         this.room = room;
     }
 
+    public Heater(@NonNull String name, @NonNull HeaterStatus heaterStatus, @NonNull Room room) {
+        this.name = name;
+        this.heaterStatus = heaterStatus;
+        this.room = room;
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public Room getRoom() {
+        return room;
     }
 
     public String getName() {
@@ -44,5 +54,9 @@ public class Heater {
 
     public HeaterStatus getHeaterStatus() {
         return heaterStatus;
+    }
+
+    public void setHeaterStatus(HeaterStatus heaterStatus) {
+        this.heaterStatus = heaterStatus;
     }
 }
