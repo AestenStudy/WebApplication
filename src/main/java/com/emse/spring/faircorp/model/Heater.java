@@ -59,4 +59,24 @@ public class Heater {
     public void setHeaterStatus(HeaterStatus heaterStatus) {
         this.heaterStatus = heaterStatus;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getPower() {
+        return power;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
+    public void setPower(Long power) {
+        this.power = power;
+    }
 }

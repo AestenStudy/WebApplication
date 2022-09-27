@@ -83,8 +83,28 @@ public class Room {
         return building;
     }
 
-    public void setFloor(int floor) {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setFloor(Integer floor) {
         this.floor = floor;
+    }
+
+    public void setCurrentTemp(Double currentTemp) {
+        this.currentTemp = currentTemp;
+    }
+
+    public void setTargetTemp(Double targetTemp) {
+        this.targetTemp = targetTemp;
+    }
+
+    public void setHeaters(List<Heater> heaters) {
+        this.heaters = heaters;
+    }
+
+    public void setWindows(List<Window> windows) {
+        this.windows = windows;
     }
 
     public void setBuilding(Building building) {

@@ -41,6 +41,8 @@ public class RoomController {
             room = roomDao.getReferenceById(dto.getId());
             room.setBuilding(building);
             room.setFloor(dto.getFloor());
+            room.setCurrentTemp(dto.getCurrentTemp());
+            room.setTargetTemp(dto.getTargetTemp());
         }
         return new RoomDto(room);
     }
