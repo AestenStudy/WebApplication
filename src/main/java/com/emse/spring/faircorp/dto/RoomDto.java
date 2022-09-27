@@ -1,9 +1,8 @@
 package com.emse.spring.faircorp.dto;
 
-import com.emse.spring.faircorp.model.Heater;
 import com.emse.spring.faircorp.model.Room;
-import com.emse.spring.faircorp.model.Window;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,8 +25,8 @@ public class RoomDto {
         this.floor = room.getFloor();
         this.currentTemp = room.getCurrentTemp();
         this.targetTemp = room.getTargetTemp();
-        this.heaters = room.getHeaters().stream().map(HeaterDto::new).collect(Collectors.toList());
-        this.windows = room.getWindows().stream().map(WindowDto::new).collect(Collectors.toList());;
+        this.heaters = room.getHeaters() != null ? room.getHeaters().stream().map(HeaterDto::new).collect(Collectors.toList()) : new ArrayList<>();
+        this.windows = room.getWindows() != null ?  room.getWindows().stream().map(WindowDto::new).collect(Collectors.toList()) : new ArrayList<>();
         this.buildingName = room.getBuilding().getName();
         this.buildingId = room.getBuilding().getId();
     }
