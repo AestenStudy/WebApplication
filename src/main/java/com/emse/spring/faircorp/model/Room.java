@@ -86,4 +86,8 @@ public class Room {
     public void setFloor(int floor) {
         this.floor = floor;
     }
+
+    public void setBuilding(Building building) {
+        this.building = building;
+    }
 }

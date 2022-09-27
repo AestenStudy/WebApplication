@@ -39,6 +39,7 @@ public class RoomController {
         }
         else {
             room = roomDao.getReferenceById(dto.getId());
+            room.setBuilding(building);
             room.setFloor(dto.getFloor());
         }
         return new RoomDto(room);
