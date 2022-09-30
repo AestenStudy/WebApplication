@@ -19,7 +19,7 @@ public class Room {
     private Integer floor;
 
     @Column
-    private Double currentTemp; //null value can't be assigned to primitive type double, so Double
+    private Double currentTemp;
 
     @Column
     private Double targetTemp;

@@ -1,9 +1,7 @@
 package com.emse.spring.faircorp.api;
 
 import com.emse.spring.faircorp.dao.BuildingDao;
-import com.emse.spring.faircorp.dao.HeaterDao;
 import com.emse.spring.faircorp.dao.RoomDao;
-import com.emse.spring.faircorp.dao.WindowDao;
 import com.emse.spring.faircorp.dto.RoomDto;
 import com.emse.spring.faircorp.model.*;
 import org.springframework.web.bind.annotation.*;

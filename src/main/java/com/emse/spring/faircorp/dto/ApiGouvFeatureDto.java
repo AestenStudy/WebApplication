@@ -2,7 +2,7 @@ package com.emse.spring.faircorp.dto;
 
 public class ApiGouvFeatureDto {
     private String type;
-    private ApiGouvAdressDto properties;
+    private ApiGouvAddressDto properties;
 
     public String getType() {
         return type;
@@ -12,11 +12,11 @@ public class ApiGouvFeatureDto {
         this.type = type;
     }
 
-    public ApiGouvAdressDto getProperties() {
+    public ApiGouvAddressDto getProperties() {
         return properties;
     }
 
-    public void setProperties(ApiGouvAdressDto properties) {
+    public void setProperties(ApiGouvAddressDto properties) {
         this.properties = properties;
     }
 }

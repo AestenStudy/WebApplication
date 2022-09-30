@@ -1,6 +1,6 @@
 package com.emse.spring.faircorp.dto;
 
-public class ApiGouvAdressDto {
+public class ApiGouvAddressDto {
     private String id;
     private String label;
 
