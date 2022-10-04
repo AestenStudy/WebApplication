@@ -1,7 +1,6 @@
 .gradle
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+build/*
+!build/libs/
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

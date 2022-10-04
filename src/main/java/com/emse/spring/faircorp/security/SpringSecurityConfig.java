@@ -37,8 +37,8 @@ public class SpringSecurityConfig {
     }
 
     @Bean
-    @Order(3)
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    @Order(2)
+    public SecurityFilterChain filterChainAnyAll(HttpSecurity http) throws Exception {
         return http
                 .authorizeRequests(authorize -> authorize.anyRequest().authenticated())
                 .formLogin(withDefaults())
@@ -48,7 +48,7 @@ public class SpringSecurityConfig {
 
     @Bean
     @Order(1)
-    public SecurityFilterChain filterChainAdminSpecific(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChainApiAdmin(HttpSecurity http) throws Exception {
         return http
                 .antMatcher("/api/**")
                 .authorizeRequests(authorize -> authorize.anyRequest().hasRole(ROLE_ADMIN))
