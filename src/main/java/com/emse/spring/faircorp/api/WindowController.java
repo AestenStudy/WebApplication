@@ -32,7 +32,7 @@ public class WindowController {
 
     @GetMapping(path = "/{id}")
     public WindowDto findById(@PathVariable Long id) {
-        return windowDao.findById(id).map(WindowDto::new).orElse(null);
+        return windowDao.findById(id).map(WindowDto::new).orElse(new WindowDto());
     }
 
     @PutMapping(path = "/{id}/switch")
