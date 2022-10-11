@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
@@ -38,7 +39,7 @@ public class SpringSecurityConfig {
     @Bean
     @Order(2)
     public SecurityFilterChain filterChainAnyAll(HttpSecurity http) throws Exception {
-        return http
+        return http.cors().and().csrf().disable()
                 .authorizeRequests(authorize -> authorize.anyRequest().authenticated())
                 .formLogin(withDefaults())
                 .httpBasic(withDefaults())
@@ -48,14 +49,11 @@ public class SpringSecurityConfig {
     @Bean
     @Order(1)
     public SecurityFilterChain filterChainApiAdmin(HttpSecurity http) throws Exception {
-        return http
+        return http.cors().and().csrf().disable()
                 .antMatcher("/api/**")
                 .authorizeRequests(authorize -> authorize.anyRequest().hasRole(ROLE_ADMIN))
                 .formLogin(withDefaults())
                 .httpBasic(withDefaults())
                 .build();
     }
-
-
-
 }

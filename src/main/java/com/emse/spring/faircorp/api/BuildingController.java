@@ -1,7 +1,6 @@
 package com.emse.spring.faircorp.api;
 
 import com.emse.spring.faircorp.dao.BuildingDao;
-import com.emse.spring.faircorp.dao.RoomDao;
 import com.emse.spring.faircorp.dto.BuildingDto;
 import com.emse.spring.faircorp.dto.RoomDto;
 import com.emse.spring.faircorp.model.Building;
