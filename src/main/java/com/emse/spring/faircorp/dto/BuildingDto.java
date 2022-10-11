@@ -10,13 +10,23 @@ import java.util.stream.Collectors;
 public class BuildingDto {
     private Long id;
     private String name;
+    private String address;
     private List<RoomDto> rooms;
 
     public BuildingDto() {}
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public BuildingDto(Building building) {
         this.id = building.getId();
         this.name = building.getName();
+        this.address = building.getAddress();
         this.rooms = building.getRooms() != null ? building.getRooms().stream().map(RoomDto::new).collect(Collectors.toList()) : new ArrayList<>();
     }
 

@@ -17,8 +17,8 @@ import java.util.List;
 @Transactional
 public class AddressController {
     @GetMapping("/{params}")
-    public List<ApiGouvAddressDto> getAddresses(@PathVariable String... params) {
-        return new AddressSearchService(new RestTemplateBuilder()).findAddress(Arrays.stream(params).toList());
+    public List<ApiGouvAddressDto> getAddresses(@PathVariable String params) {
+        return new AddressSearchService(new RestTemplateBuilder()).findAddress(List.of(params));
     }
 
 }

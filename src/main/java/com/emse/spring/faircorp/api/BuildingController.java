@@ -1,14 +1,18 @@
 package com.emse.spring.faircorp.api;
 
 import com.emse.spring.faircorp.dao.BuildingDao;
+import com.emse.spring.faircorp.dto.ApiGouvAddressDto;
 import com.emse.spring.faircorp.dto.BuildingDto;
 import com.emse.spring.faircorp.dto.RoomDto;
 import com.emse.spring.faircorp.model.Building;
 import com.emse.spring.faircorp.model.HeaterStatus;
 import com.emse.spring.faircorp.model.WindowStatus;
+import com.emse.spring.faircorp.service.AddressSearchService;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,11 +36,12 @@ public class BuildingController {
         Building building = null;
 
         if (dto.getId() == null) {
-            building = buildingDao.save(new Building(dto.getName()));
+            building = buildingDao.save(new Building(dto.getName(), dto.getAddress()));
         }
         else {
             building = buildingDao.getReferenceById(dto.getId());
             building.setName(dto.getName());
+            building.setAddress(dto.getAddress());
         }
 
         return new BuildingDto(building);
@@ -72,4 +77,9 @@ public class BuildingController {
         return new BuildingDto(building);
     }
 
+    @GetMapping("/{id}/address")
+    public List<ApiGouvAddressDto> findAddress(@PathVariable Long id) {
+        Building building = buildingDao.findById(id).orElseThrow(IllegalArgumentException::new);
+        return new AddressSearchService(new RestTemplateBuilder()).findAddress(List.of(building.getAddress()));
+    }
 }

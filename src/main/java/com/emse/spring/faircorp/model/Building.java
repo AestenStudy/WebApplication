@@ -1,6 +1,5 @@
 package com.emse.spring.faircorp.model;
 
-import com.emse.spring.faircorp.dao.BuildingDao;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
@@ -16,6 +15,17 @@ public class Building {
     @Column(nullable = false)
     private String name;
 
+    @Column
+    private String address;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @OneToMany(mappedBy = "building")
     private List<Room> rooms;
 
@@ -23,6 +33,11 @@ public class Building {
 
     public Building(@NonNull String name) {
         this.name = name;
+    }
+
+    public Building(@NonNull String name, String address) {
+        this.name = name;
+        this.address = address;
     }
 
     public Long getId() {
