@@ -47,7 +47,7 @@ public class HeaterController {
 
     @GetMapping(path = "/{id}")
     public HeaterDto findById(@PathVariable Long id) {
-        return heaterDao.findById(id).map(HeaterDto::new).orElse(new HeaterDto());
+        return heaterDao.findById(id).map(HeaterDto::new).orElse(null);
     }
 
     @DeleteMapping(path = "/{id}")

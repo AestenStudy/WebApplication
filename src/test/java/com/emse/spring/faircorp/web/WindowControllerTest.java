@@ -58,42 +58,43 @@ class WindowControllerTest {
                 .andExpect(jsonPath("[*].name").value(containsInAnyOrder("window 1", "window 2")));
     }
 
-//    @Test
-//    void shouldLoadAWindowAndReturnNullIfNotFound() throws Exception {
-//        given(windowDao.findById(999L)).willReturn(null);
-//
-//        mockMvc.perform(get("/api/windows/999").accept(APPLICATION_JSON))
-//                // check the HTTP response
-//                .andExpect(status().isOk())
-//                // the content can be tested with Json path
-//                .andExpect(content().string(""));
-//    }
+    @Test
+    void shouldLoadAWindowAndReturnNullIfNotFound() throws Exception {
+        given(windowDao.findById(999L)).willReturn(new Window());
+
+        mockMvc.perform(get("/api/windows/999").accept(APPLICATION_JSON))
+                // check the HTTP response
+                .andExpect(status().isOk())
+                // the content can be tested with Json path
+                .andExpect(content().string(""));
+    }
 
 
-//    @Test
-//    void shouldLoadAWindow() throws Exception {
-//        given(windowDao.findById(99L)).willReturn(createWindow("window 1"));
-//
-//        mockMvc.perform(get("/api/windows/99").accept(APPLICATION_JSON))
-//                // check the HTTP response
-//                .andExpect(status().isOk())
-//                // the content can be tested with Json path
-//                .andExpect(jsonPath("$.name").value("window 1"));
-//    }
+    @Test
+    void shouldLoadAWindow() throws Exception {
+        //use of any() instead of 999L otherwise error because equals() method isn't what we expect it to be
+        given(windowDao.findById(any())).willReturn(Optional.of(createWindow("window 1")));
 
-//    @Test
-//    void shouldSwitchWindow() throws Exception {
-//        Window expectedWindow = createWindow("window 1");
-//        Assertions.assertThat(expectedWindow.getWindowStatus()).isEqualTo(WindowStatus.OPEN);
-//
-//        given(windowDao.findById(999L)).willReturn(Optional.of(expectedWindow).get());
-//
-//        mockMvc.perform(put("/api/windows/999/switch").accept(APPLICATION_JSON))
-//                // check the HTTP response
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$.name").value("window 1"))
-//                .andExpect(jsonPath("$.windowStatus").value("CLOSED"));
-//    }
+        mockMvc.perform(get("/api/windows/999").accept(APPLICATION_JSON))
+                // check the HTTP response
+                .andExpect(status().isOk())
+                // the content can be tested with Json path
+                .andExpect(jsonPath("$.name").value("window 1"));
+    }
+
+    @Test
+    void shouldSwitchWindow() throws Exception {
+        Window expectedWindow = createWindow("window 1");
+        Assertions.assertThat(expectedWindow.getWindowStatus()).isEqualTo(WindowStatus.OPEN);
+
+        given(windowDao.findById(any())).willReturn(Optional.of(expectedWindow));
+
+        mockMvc.perform(put("/api/windows/999/switch").accept(APPLICATION_JSON))
+                // check the HTTP response
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name").value("window 1"))
+                .andExpect(jsonPath("$.windowStatus").value("CLOSED"));
+    }
 
     @Test
     void shouldUpdateWindow() throws Exception {
@@ -134,7 +135,6 @@ class WindowControllerTest {
 
     private Window createWindow(String name) {
         Room room = new Room("S1", 1);
-        room.setId(-1L);
         return new Window(name, WindowStatus.OPEN, room);
     }
 
