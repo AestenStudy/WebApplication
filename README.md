@@ -11,7 +11,7 @@ The homepage (index.html) should contain a hyperlink to access the swagger page.
 
 Login info:
 
-link: https://webapp.cleverapps.io
+Link: https://webapp.cleverapps.io
 
 username: user | password: user | USER
 
