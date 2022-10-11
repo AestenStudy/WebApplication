@@ -36,13 +36,13 @@ public class Room {
     public Room() {
     }
 
-    public Room(@NonNull String name, @NonNull int floor, @NonNull Building building) {
+    public Room(@NonNull String name, @NonNull Integer floor, @NonNull Building building) {
         this.name = name;
         this.floor = floor;
         this.building = building;
     }
 
-    public Room(@NonNull String name, @NonNull int floor) {
+    public Room(@NonNull String name, @NonNull Integer floor) {
         this.name = name;
         this.floor = floor;
     }
