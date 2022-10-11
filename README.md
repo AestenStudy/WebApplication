@@ -1,7 +1,7 @@
 # WebApplication
 Implementation of a web application using spring boot.
 
-##General Information
+## General Information
 
 This app contains a structure to manage a building, its rooms and the windows/heaters in each one of them.
 A REST Controller is available which allows to send multiple requests to the app.
@@ -12,7 +12,7 @@ Login info:
 username: user | password: user | USER
 username: admin | password: admin | ADMIN
 
-##Code Information
+## Code Information
 
 In the github page, you can not only find the source code, but also all the unit tests and builds.
 Some code reamining from previous exercises remains (e.g. the greeting services, HelloController, ApiGouv Addresse system).
