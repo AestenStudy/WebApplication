@@ -3,19 +3,21 @@ package com.emse.spring.faircorp.dto;
 import com.emse.spring.faircorp.model.Building;
 import com.emse.spring.faircorp.model.Room;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BuildingDto {
     private Long id;
     private String name;
-    private List<Room> rooms;
+    private List<RoomDto> rooms;
 
     public BuildingDto() {}
 
     public BuildingDto(Building building) {
         this.id = building.getId();
         this.name = building.getName();
-        this.rooms = building.getRooms();
+        this.rooms = building.getRooms() != null ? building.getRooms().stream().map(RoomDto::new).collect(Collectors.toList()) : new ArrayList<>();
     }
 
     public Long getId() {
@@ -34,11 +36,11 @@ public class BuildingDto {
         this.name = name;
     }
 
-    public List<Room> getRooms() {
+    public List<RoomDto> getRooms() {
         return rooms;
     }
 
-    public void setRooms(List<Room> rooms) {
+    public void setRooms(List<RoomDto> rooms) {
         this.rooms = rooms;
     }
 }
