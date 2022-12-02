@@ -1,6 +1,6 @@
-FROM adoptopenjdk/openjdk11:alpine-jre
+FROM openjdk:17-jdk-slim
 EXPOSE 8080
-RUN addgroup -S spring && adduser -S spring -G spring
+RUN addgroup spring && useradd -g spring spring
 USER spring:spring
 ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} app.jar
