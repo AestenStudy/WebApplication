@@ -26,4 +26,4 @@ jobs:
         uses: gradle/gradle-build-action@v2
 
       - name: test
-        run:  mvn -ntp clean test
+        run:  ./gradlew test
