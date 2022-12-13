@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: setup
+      - name: Setup Java
         uses: actions/setup-java@v3
         with:
           java-version: 17
@@ -28,8 +28,17 @@ jobs:
         with:
           arguments: build
 
-      - uses: ncipollo/release-action@v1
+      - name: Generate changelog
+        uses: Bullrich/generate-release-changelog@master
+        id: Changelog
+        env:
+          REPO: ${{ github.repository }}
+
+      - name: Release tag
+        uses: ncipollo/release-action@v1
         with:
           artifacts: "build/libs/*.jar"
           prerelease: false
           generateReleaseNotes: true
+          body: |
+            ${{ steps.Changelog.outputs.changelog }}
