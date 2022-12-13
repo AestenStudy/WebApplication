@@ -6,8 +6,8 @@ on:
       - v*
 
 jobs:
-  test:
-    name: Setup & Test
+  release:
+    name: Release Tag
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,15 +23,10 @@ jobs:
           cache: gradle
 
       - name: Gradle unit tests
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
           arguments: test
 
-  release:
-    name: Release Tag
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
