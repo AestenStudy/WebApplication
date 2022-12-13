@@ -42,8 +42,8 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/aesten/webapplication")
             credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("Aesten")
-                password = project.findProperty("gpr.key") ?: System.getenv("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")
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
             }
         }
     }
