@@ -38,9 +38,7 @@ bin/
 ### Specific Files###
 .gradle
 build/*
-!build/libs/
-build/libs/*-javadoc.jar
-build/libs/*-plain.jar
-build/libs/*-sources.jar
+clevercloud
+archive
 
 
