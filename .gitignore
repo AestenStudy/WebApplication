@@ -1,7 +1,3 @@
-.gradle
-build/*
-!build/libs/
-
 ### IntelliJ IDEA ###
 .idea/
 *.iws
@@ -38,3 +34,13 @@ bin/
 /.idea/aws.xml
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/workspace.xml
+
+### Specific Files###
+.gradle
+build/*
+!build/libs/
+build/libs/*-javadoc.jar
+build/libs/*-plain.jar
+build/libs/*-sources.jar
+
+
