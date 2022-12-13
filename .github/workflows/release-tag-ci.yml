@@ -1,0 +1,18 @@
+name: CI Release Tags
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  release:
+    name: Release Tag
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/libs/*"
+          prerelease: false
+          generateReleaseNotes: true
