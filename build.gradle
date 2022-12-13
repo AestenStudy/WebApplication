@@ -3,6 +3,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.13.RELEASE'
     id 'java'
     id 'jacoco-report-aggregation'
+    id 'maven-publish'
 }
 
 group 'com.emse'
@@ -33,4 +34,22 @@ test {
 java {
     withSourcesJar()
     withJavadocJar()
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/Aesten/WebApplication")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from(components.java)
+        }
+    }
 }
