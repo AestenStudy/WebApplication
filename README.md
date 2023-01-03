@@ -19,6 +19,6 @@ Login info:
 
 ### Code Information
 
-In the github page, you can not only find the source code, but also all the unit tests and builds.
-Some code reamining from previous exercises remains (e.g. the greeting services, HelloController, ApiGouv Addresse system).
+In the GitHub page, you can not only find the source code, but also all the unit tests and builds.
+Some code remaining from previous exercises remains (e.g. the greeting services, HelloController, ApiGov Address system).
 But the small portions should not interfere with the general usage of the app.
