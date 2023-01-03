@@ -9,14 +9,12 @@ Only admin users can use the api in swagger, although the normal users can also 
 The homepage (index.html) should contain a hyperlink to access the swagger page.
 
 
-Login info:
-
-- Link: https://webapp.cleverapps.io
-
+Login info (DISABLED):
+~~~
+- Link: https://webapp.cleverapps.io now disabled
 - username: user | password: user | role: USER
-
 - username: admin | password: admin | role: ADMIN
-
+~~~
 ### Code Information
 
 In the GitHub page, you can not only find the source code, but also all the unit tests and builds.

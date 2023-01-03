@@ -37,8 +37,9 @@ bin/
 
 ### Specific Files###
 .gradle
-build/*
+build
 clevercloud
 archive
+config
 
 
